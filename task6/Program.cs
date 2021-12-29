@@ -15,11 +15,13 @@ namespace task6
             var n = int.Parse(Console.ReadLine());
 
             Console.WriteLine(Metod(n, m));
+
             Console.ReadKey();
             Console.WriteLine("Введите числа");
             var x = double.Parse(Console.ReadLine());
             var y = double.Parse(Console.ReadLine());
             Console.WriteLine(Coordinat(x, y));
+
             Console.ReadKey();
 
         }
