@@ -4,40 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task6
+namespace ConsoleApp4
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите два числа");
-            var m = int.Parse(Console.ReadLine());
-            var n = int.Parse(Console.ReadLine());
-
-            Console.WriteLine(Metod(n, m));
+            var myNumbers = Goldba(Resheto(100));
 
             Console.ReadKey();
-            Console.WriteLine("Введите числа");
-            var x = double.Parse(Console.ReadLine());
-            var y = double.Parse(Console.ReadLine());
-            Console.WriteLine(Coordinat(x, y));
-
-            Console.ReadKey();
-
         }
-        static bool Metod(int m, int n)
+        static List<int> Resheto(int n)
         {
-            
-            return (m == 0) || (n == 0);  
+            List<int> myList = new List<int>();
+            for (int i = 2; i <= n; i++)
+            {
+                if ((i % 2) != 0 || i == 2) myList.Add(i);
+            }
+            for (int i = 0; i < myList.Count; i++)
+            {
+                for (int k = 2; k <= n; k++)
+                {
+                    myList.Remove(myList[i] * k);
+                }
+            }
+
+            return myList;
         }
-        static bool Coordinat(double x, double y)
+        static double Goldba(List<int> myList)
         {
-            return ((x <= -2) && (y >= 1));
+            List<int> myList2 = new List<int>();
+            myList.ForEach(delegate (int i)
+            {
+                for (int l = 2; l < 100; l++)
+                {
+                    myList2.Add(i + 2 * l * l);
+                }
+            });
+            return '1';
         }
-
-
-
     }
-    
 }
-
